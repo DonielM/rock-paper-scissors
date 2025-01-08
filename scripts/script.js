@@ -2,6 +2,7 @@
 const rockButton = document.querySelector(".js-rock-button");
 const paperButton = document.querySelector(".js-paper-button");
 const scissorsButton = document.querySelector(".js-scissors-button");
+const resetButton = document.querySelector(".js-reset-button");
 
 const autoPlayButton = document.querySelector(".js-auto-play");
 const resultDisplay = document.querySelector(".js-result-display");
@@ -102,3 +103,17 @@ function displayResult(playerPick, computerPick, result) {
   resultDisplay.innerHTML = `Result: ${result}`;
   movesDisplay.innerHTML = `You picked: ${playerPick}, Computer picked: ${computerPick}`;
 }
+
+// resets the scores and clears the result and picks displayed
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  displayScore();
+  resultDisplay.innerHTML = "";
+  movesDisplay.innerHTML = "";
+}
+
+resetButton.addEventListener("click", () => {
+  resetScore();
+});
