@@ -5,6 +5,7 @@ const scissorsButton = document.querySelector(".js-scissors-button");
 
 const autoPlayButton = document.querySelector(".js-auto-play");
 const resultDisplay = document.querySelector(".js-result-display");
+const movesDisplay = document.querySelector(".js-moves-display");
 const scoreDisplay = document.querySelector(".js-score-display");
 
 // This object stores the results of the game
@@ -38,6 +39,7 @@ function playerMove(playerPick) {
     score.losses++;
   }
   displayScore();
+  displayResult(playerPick, computerPick, result);
   console.log(result);
 }
 // Added event listener on the move buttons so when clicked it
@@ -92,4 +94,11 @@ autoPlayButton.addEventListener("click", () => {
 // This displays the results in the <div> underneath the move buttons on the page
 function displayScore() {
   scoreDisplay.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties:${score.ties}`;
+}
+
+// This shows what the result was and what pick you and the computer made
+//  after you picked a move or use autoplay
+function displayResult(playerPick, computerPick, result) {
+  resultDisplay.innerHTML = `Result: ${result}`;
+  movesDisplay.innerHTML = `You picked: ${playerPick}, Computer picked: ${computerPick}`;
 }
