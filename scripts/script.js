@@ -1,12 +1,16 @@
-// query selecting the buttons so i can make them run playerMove() when clicked
+// Query selecting the buttons so i can make them run playerMove() when clicked
 const rockButton = document.querySelector(".js-rock-button");
 const paperButton = document.querySelector(".js-paper-button");
 const scissorsButton = document.querySelector(".js-scissors-button");
 
 const autoPlayButton = document.querySelector(".js-auto-play");
-const resultdisplay = document.querySelector(".js-result-display");
+const resultDisplay = document.querySelector(".js-result-display");
+const scoreDisplay = document.querySelector(".js-score-display");
 
-// the following function picks a random number and gives the computer a coressponding move
+// This object stores the results of the game
+score = { wins: 0, losses: 0, ties: 0 };
+
+// The following function picks a random number and gives the computer a coressponding move
 // i use return here so i dont have to write else if and else making the code shorter
 function computersMove() {
   const randomNumber = Math.random();
@@ -21,18 +25,22 @@ function playerMove(playerPick) {
   let result = "";
   if (playerPick === computerPick) {
     result = "You, tie";
+    score.ties++;
   } else if (
     (playerPick === "Scissors" && computerPick === "Paper") ||
     (playerPick === "Paper" && computerPick === "Rock") ||
     (playerPick === "Rock" && computerPick === "Scissors")
   ) {
     result = "You, win";
+    score.wins++;
   } else {
     result = "You, loose";
+    score.losses++;
   }
+  displayScore();
   console.log(result);
 }
-// added event listener on the move buttons so when clicked it
+// Added event listener on the move buttons so when clicked it
 // picks the corresponding move.
 // I used arrow functions because its easier to read than regular
 // functions when inside another function
@@ -62,7 +70,7 @@ document.body.addEventListener("keydown", (event) => {
 let autoPlayIsActive = false;
 let intervalId;
 
-// this lets the game play automatically by using computer move
+// This lets the game play automatically by using computer move
 // to pick a random move at every interval, you can cancel
 //  auto play by pressing the button again
 function autoPick() {
@@ -80,3 +88,8 @@ function autoPick() {
 autoPlayButton.addEventListener("click", () => {
   autoPick();
 });
+
+// This displays the results in the <div> underneath the move buttons on the page
+function displayScore() {
+  scoreDisplay.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties:${score.ties}`;
+}
