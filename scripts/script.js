@@ -42,3 +42,15 @@ paperButton.addEventListener("click", () => {
 scissorsButton.addEventListener("click", () => {
   playerMove("Scissors");
 });
+
+// Now the player can pick moves by pressing the
+//  first letter of the move: r, p, and s
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    playerMove("Rock");
+  } else if (event.key === "p") {
+    playerMove("Paper");
+  } else if (event.key === "s") {
+    playerMove("Scissors");
+  }
+});
