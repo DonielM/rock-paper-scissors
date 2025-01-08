@@ -3,6 +3,9 @@ const rockButton = document.querySelector(".js-rock-button");
 const paperButton = document.querySelector(".js-paper-button");
 const scissorsButton = document.querySelector(".js-scissors-button");
 
+const autoPlayButton = document.querySelector(".js-auto-play");
+const resultdisplay = document.querySelector(".js-result-display");
+
 // the following function picks a random number and gives the computer a coressponding move
 // i use return here so i dont have to write else if and else making the code shorter
 function computersMove() {
@@ -53,4 +56,27 @@ document.body.addEventListener("keydown", (event) => {
   } else if (event.key === "s") {
     playerMove("Scissors");
   }
+});
+
+// Autoplay is false by default
+let autoPlayIsActive = false;
+let intervalId;
+
+// this lets the game play automatically by using computer move
+// to pick a random move at every interval, you can cancel
+//  auto play by pressing the button again
+function autoPick() {
+  if (autoPlayIsActive === false) {
+    intervalId = setInterval(() => {
+      playerMove(computersMove());
+    }, 100);
+    autoPlayIsActive = true;
+  } else {
+    clearInterval(intervalId);
+    autoPlayIsActive = false;
+  }
+}
+
+autoPlayButton.addEventListener("click", () => {
+  autoPick();
 });
