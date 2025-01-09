@@ -12,8 +12,17 @@ body {
 .rock-button,
 .paper-button,
 .scissors-button {
+  background-color: transparent;
+  border: 3px solid aliceblue;
+  border-radius: 60px;
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+  cursor: pointer;
 }
-
+.move-image {
+  height: 50px;
+}
 .reset-score,
 .autoplay {
   background-color: aliceblue;
