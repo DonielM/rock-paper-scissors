@@ -98,10 +98,12 @@ function displayScore() {
 }
 
 // This shows what the result was and what pick you and the computer made
-//  after you picked a move or use autoplay
+// after you picked a move or use autoplay
+// They show images now instead of just text.
 function displayResult(playerPick, computerPick, result) {
   resultDisplay.innerHTML = `Result: ${result}`;
-  movesDisplay.innerHTML = `You picked: ${playerPick}, Computer picked: ${computerPick}`;
+  movesDisplay.innerHTML = `You picked:<img class="move-image" src="/images/${playerPick}-emoji.png">
+  Computer picked:<img class="move-image" src="/images/${computerPick}-emoji.png">`;
 }
 
 // resets the scores and clears the result and picks displayed
