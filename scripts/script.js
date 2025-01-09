@@ -33,7 +33,7 @@ function playerMove(playerPick) {
     (playerPick === "Paper" && computerPick === "Rock") ||
     (playerPick === "Rock" && computerPick === "Scissors")
   ) {
-    result = "You, win";
+    result = "You, win!";
     score.wins++;
   } else {
     result = "You, loose";
