@@ -1,0 +1,30 @@
+body {
+  background-color: black;
+  color: aliceblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.heading1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.rock-button,
+.paper-button,
+.scissors-button {
+}
+
+.reset-score,
+.autoplay {
+  background-color: aliceblue;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.score-display {
+  margin-top: 60px;
+}
