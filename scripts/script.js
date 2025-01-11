@@ -66,6 +66,10 @@ document.body.addEventListener("keydown", (event) => {
     playerMove("Paper");
   } else if (event.key === "s") {
     playerMove("Scissors");
+  } else if (event.key === "a") {
+    autoPick();
+  } else if (event.key === "Backspace") {
+    resetScore();
   }
 });
 
