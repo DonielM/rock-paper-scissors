@@ -117,7 +117,6 @@ function displayResult(playerPick, computerPick, result) {
 
 // resets the scores and clears the result and picks displayed
 function resetScore() {
-  confirm();
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
@@ -127,13 +126,27 @@ function resetScore() {
 }
 
 resetButton.addEventListener("click", () => {
-  resetScore();
+  confirm();
 });
 
+function closeConfirmation() {}
+
 function confirm() {
-  resetConfirmButton.innerHTML = `<p class="confirm-paragraph">
+  resetConfirmButton.innerHTML = `<p class="js-confirm-paragraph">
         Are you sure you want to reset your score?
         <button class="js-yes-button">Yes</button
         ><button class="js-no-button">No</button>
       </p>`;
+
+  const yesButton = document.querySelector(".js-yes-button");
+  const noButton = document.querySelector(".js-no-button");
+  const confirmParagraph = document.querySelector(".js-confirm-paragraph");
+
+  yesButton.addEventListener("click", () => {
+    resetScore();
+    confirmParagraph.innerHTML = "";
+  });
+  noButton.addEventListener("click", () => {
+    confirmParagraph.innerHTML = "";
+  });
 }
