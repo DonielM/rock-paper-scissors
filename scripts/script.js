@@ -72,7 +72,7 @@ document.body.addEventListener("keydown", (event) => {
   } else if (event.key === "a") {
     autoPick();
   } else if (event.key === "Backspace") {
-    resetScore();
+    confirm();
   }
 });
 
@@ -148,5 +148,13 @@ function confirm() {
   });
   noButton.addEventListener("click", () => {
     confirmParagraph.innerHTML = "";
+  });
+  document.body.addEventListener("keydown", (event) => {
+    if (event.key === "y") {
+      resetScore();
+      confirmParagraph.innerHTML = "";
+    } else if (event.key === "n") {
+      confirmParagraph.innerHTML = "";
+    }
   });
 }
