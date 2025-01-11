@@ -60,8 +60,8 @@ scissorsButton.addEventListener("click", () => {
   playerMove("Scissors");
 });
 
-// Now the player can pick moves by pressing the
-//  first letter of the move: r, p, and s
+// Now the player can interact with every button/ element
+//  of the game with keybaord inputs
 document.body.addEventListener("keydown", (event) => {
   if (event.key === "r") {
     playerMove("Rock");
@@ -124,13 +124,13 @@ function resetScore() {
   resultDisplay.innerHTML = "";
   movesDisplay.innerHTML = "";
 }
-
+// clicking the reset button now displays a confirmation promt
 resetButton.addEventListener("click", () => {
   confirm();
 });
-
-function closeConfirmation() {}
-
+// this function dispays a confirmation papargraph checking if the user
+// really wants to reset the score or dosent it can be used with just
+// the keyboard inputs and hides the papragrpah when done
 function confirm() {
   resetConfirmButton.innerHTML = `<p class="js-confirm-paragraph">
         Are you sure you want to reset your score?
