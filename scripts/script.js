@@ -3,6 +3,9 @@ const rockButton = document.querySelector(".js-rock-button");
 const paperButton = document.querySelector(".js-paper-button");
 const scissorsButton = document.querySelector(".js-scissors-button");
 const resetButton = document.querySelector(".js-reset-button");
+const resetConfirmButton = document.querySelector(
+  ".js-reset-confirmation-button"
+);
 
 const autoPlayButton = document.querySelector(".js-auto-play");
 const resultDisplay = document.querySelector(".js-result-display");
@@ -86,9 +89,11 @@ function autoPick() {
       playerMove(computersMove());
     }, 100);
     autoPlayIsActive = true;
+    autoPlayButton.innerHTML = "Stop Autoplay";
   } else {
     clearInterval(intervalId);
     autoPlayIsActive = false;
+    autoPlayButton.innerHTML = "Autoplay";
   }
 }
 
@@ -112,6 +117,7 @@ function displayResult(playerPick, computerPick, result) {
 
 // resets the scores and clears the result and picks displayed
 function resetScore() {
+  confirm();
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
@@ -123,3 +129,11 @@ function resetScore() {
 resetButton.addEventListener("click", () => {
   resetScore();
 });
+
+function confirm() {
+  resetConfirmButton.innerHTML = `<p class="confirm-paragraph">
+        Are you sure you want to reset your score?
+        <button class="js-yes-button">Yes</button
+        ><button class="js-no-button">No</button>
+      </p>`;
+}
