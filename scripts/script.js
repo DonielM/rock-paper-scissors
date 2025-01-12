@@ -1,3 +1,10 @@
+// retrieve the score from local storage if its available if not it sets the score to zero
+let score = JSON.parse(localStorage.getItem("score")) || {
+  wins: 0,
+  losses: 0,
+  ties: 0,
+};
+
 // Query selecting the buttons so i can make them run playerMove() when clicked
 const rockButton = document.querySelector(".js-rock-button");
 const paperButton = document.querySelector(".js-paper-button");
@@ -12,8 +19,8 @@ const resultDisplay = document.querySelector(".js-result-display");
 const movesDisplay = document.querySelector(".js-moves-display");
 const scoreDisplay = document.querySelector(".js-score-display");
 
-// This object stores the results of the game
-score = { wins: 0, losses: 0, ties: 0 };
+// display the scores by default so it shows previously saved scores if there is one
+displayScore();
 
 // The following function picks a random number and gives the computer a coressponding move
 // i use return here so i dont have to write else if and else making the code shorter
@@ -101,9 +108,12 @@ autoPlayButton.addEventListener("click", () => {
   autoPick();
 });
 
-// This displays the results in the <div> underneath the move buttons on the page
+// This displays the score count in the <div> underneath the move buttons on the page
+// also saves the scores in local storage
+
 function displayScore() {
   scoreDisplay.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties:${score.ties}`;
+  localStorage.setItem("score", JSON.stringify(score));
 }
 
 // This shows what the result was and what pick you and the computer made
