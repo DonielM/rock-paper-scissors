@@ -11,7 +11,8 @@ decline reset score = n
 
 ## App Gif
 
-/images/rock-paper-scissors-gif.gif
+
+![Alt Text](/assets//images/rock-paper-scissors-gif.gif)
 
 ## Github Repo
 
