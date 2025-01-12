@@ -121,8 +121,8 @@ function displayScore() {
 // They show images now instead of just text.
 function displayResult(playerPick, computerPick, result) {
   resultDisplay.innerHTML = `Result: ${result}`;
-  movesDisplay.innerHTML = `You picked:<img class="move-image" src="/assets/images/${playerPick}-emoji.png">
-  Computer picked:<img class="move-image" src="/assets/images/${computerPick}-emoji.png">`;
+  movesDisplay.innerHTML = `You picked:<img class="move-image" src="./assets/images/${playerPick}-emoji.png">
+  Computer picked:<img class="move-image" src="./assets/images/${computerPick}-emoji.png">`;
 }
 
 // resets the scores and clears the result and picks displayed
